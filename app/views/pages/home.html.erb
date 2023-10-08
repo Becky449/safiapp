@@ -1,18 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<img src="https://safiorganics.co.ke/wp-content/uploads/2021/07/cropped-Screen_Shot_2016-08-02_at_3.36.24_PM_fxegkb-300x60-1-1.png">
+<h5>Sales Monitoring App</h5>
 
 <% if current_user %>
     <p> Welcome <%= current_user.firstname + ' ' + current_user.lastname %> </p> 
     <p>You are a [<%= current_user.role %>]</p>
     <% if current_user.admin? %>
-        there are <%= User.count %> users
+        <%# there are <%= User.count %> 
+        Visit Your Dashboard
     <% end %>
-    <p>
-    you have successfully Signed in
-    </p>
+    
     <%= link_to "sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
 <% else %>
     <p>you are not signed in</p>
-    <%= link_to "sign up!", new_user_registration_path %>
-    <%= link_to "sign in", new_user_session_path %>
+    <button type="button" class="btn btn-success"><%= link_to "sign up!", new_user_registration_path, style: "color: #fff; text-decoration: none; font-weight: bold;" %></button>
+    <button type="button" class="btn btn-success"><%= link_to "sign in", new_user_session_path, style: "color: #fff; text-decoration: none; font-weight: bold;" %></button>
 <% end %>

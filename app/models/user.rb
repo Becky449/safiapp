@@ -8,7 +8,8 @@ class User < ApplicationRecord
           def set_default_role
             self.role ||= :user
           end
+          has_many :agrovets
           
           validates :firstname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}
-          validates :lastname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}          
+          validates :lastname, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}     
 end

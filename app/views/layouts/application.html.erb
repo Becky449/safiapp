@@ -16,7 +16,7 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Safi</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,10 +36,10 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
     </div>
-    <footer class="mt-5 text-center">
-      <div class="container">
-        Safi sales app <%= Time.now.year %>
+    <footer class="mt-5 text-center bg-success">
+      <div class="container" style="color: #fff; text-decoration: none; font-weight: bold;">
+          Safi sales app <%= Time.now.year %>
       </div>
-    </footer>
+      </footer>
   </body>
 </html>

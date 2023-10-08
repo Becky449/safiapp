@@ -1,0 +1,47 @@
+<%= form_with(model: agrovet, local: true) do |f| %>
+  <% if agrovet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(agrovet.errors.count, "error") %> prohibited this agrovet from being saved:</h2>
+
+      <ul>
+        <% agrovet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name, style: "display: block" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :location, style: "display: block" %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div>
+    <%= f.label :owner_name, style: "display: block" %>
+    <%= f.text_field :owner_name %>
+  </div>
+
+  <div>
+    <%= f.label :owner_phone, style: "display: block" %>
+    <%= f.number_field :owner_phone %>
+  </div>
+
+  <div>
+    <%= f.label :owner_email, style: "display: block" %>
+    <%= f.text_field :owner_email %>
+  </div>
+
+  <div>
+    <%= f.label :user_id, style: "display: block" %>
+    <%= f.hidden_field :user_id, value: @agrovet.user_id %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
