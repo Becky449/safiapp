@@ -22,10 +22,10 @@ class AgrovetsController < ApplicationController
   # POST /agrovets or /agrovets.json
   def create
     @agrovet = Agrovet.new(agrovet_params)
-    @agrovet = current_user.agrovets.build(agrovet_params)
+    
     respond_to do |format|
       if @agrovet.save
-        format.html { redirect_to agrovet_url(@agrovet), notice: "Agrovet was successfully created." }
+        format.html { redirect_to pages_salesrep_path, notice: "Agrovet was successfully created." }
         format.json { render :show, status: :created, location: @agrovet }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -55,6 +55,10 @@ class AgrovetsController < ApplicationController
       format.html { redirect_to agrovets_url, notice: "Agrovet was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def agrovetinfo
+    @agrovet = Agrovet.find(params[:id])
   end
 
   private

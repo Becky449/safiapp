@@ -6,6 +6,16 @@ class PagesController < ApplicationController
   end
 
   def salesrep
-    @agrovet = Agrovet.find_by(id: params[:agrovet_id])
+    # Find the current user's agrovets
+    @agrovets = Agrovet.where(user_id: current_user.id)
+  
+    # Optionally, you can find a specific agrovet if an agrovet_id parameter is provided
+    @agrovet = Agrovet.find_by(id: params[:agrovet_id]) if params[:agrovet_id]
   end
+  
+
+  def agrovetinfo
+    @agrovet = Agrovet.find(params[:id])
+  end
+  
 end

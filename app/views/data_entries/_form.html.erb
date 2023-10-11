@@ -1,0 +1,52 @@
+<%= form_with(model: data_entry) do |form| %>
+  <% if data_entry.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(data_entry.errors.count, "error") %> prohibited this data_entry from being saved:</h2>
+
+      <ul>
+        <% data_entry.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :agrovet_id, style: "display: block" %>
+    <%= form.text_field :agrovet_id %>
+  </div>
+
+  <div>
+    <%= form.label :product_1_quantity, style: "display: block" %>
+    <%= form.number_field :product_1_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :product_2_quantity, style: "display: block" %>
+    <%= form.number_field :product_2_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :product_3_quantity, style: "display: block" %>
+    <%= form.number_field :product_3_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :product_4_quantity, style: "display: block" %>
+    <%= form.number_field :product_4_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :money_paid, style: "display: block" %>
+    <%= form.number_field :money_paid %>
+  </div>
+
+  <div>
+    <%= form.label :money_owed, style: "display: block" %>
+    <%= form.number_field :money_owed %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

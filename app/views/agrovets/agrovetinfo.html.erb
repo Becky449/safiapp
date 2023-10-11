@@ -1,0 +1,15 @@
+<h3><%= @agrovet.name %></h3>
+<p><%= @agrovet.owner_phone%></p>
+<% current_date = Date.today %>
+<p><%= current_date.strftime("%d-%m-%Y") %></p>
+<% if @latest_form_entry.present? %>
+  <!-- Display information from the latest form entry here -->
+  <!-- Example: -->
+  <p><strong>Entry Date:</strong> <%= @latest_form_entry.created_at.strftime("%Y-%m-%d") %></p>
+  <!-- Add more information from the form entry as needed -->
+<% else %>
+  <p>No form entries available for this agrovet.</p>
+  <%= link_to "Create Form Entry", new_agrovet_path(agrovet_id: @agrovet.id), class: "btn btn-success" %>
+<% end %>
+
+<button type="button" class="btn btn-success"><%= link_to "Sales Rep home", pages_salesrep_path, style: "color: #fff; text-decoration: none; font-weight: bold;" %></button>
