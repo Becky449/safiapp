@@ -13,6 +13,9 @@ class DataEntriesController < ApplicationController
   # GET /data_entries/new
   def new
     @data_entry = DataEntry.new
+    @agrovet = Agrovet.find(params[:agrovet_id])
+    @data_entry = @agrovet.data_entries.build
+    @products = Product.all
   end
 
   # GET /data_entries/1/edit
@@ -22,10 +25,12 @@ class DataEntriesController < ApplicationController
   # POST /data_entries or /data_entries.json
   def create
     @data_entry = DataEntry.new(data_entry_params)
+    @agrovet = Agrovet.find(params[:data_entry][:agrovet_id]) # Retrieve the associated agrovet
+    @data_entry = @agrovet.data_entries.build(data_entry_params)
 
     respond_to do |format|
       if @data_entry.save
-        format.html { redirect_to data_entry_url(@data_entry), notice: "Data entry was successfully created." }
+        format.html { redirect_to agrovetinfo_agrovet_path(@agrovet), notice: "Data entry was successfully created." }
         format.json { render :show, status: :created, location: @data_entry }
       else
         format.html { render :new, status: :unprocessable_entity }

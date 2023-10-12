@@ -59,6 +59,9 @@ class AgrovetsController < ApplicationController
 
   def agrovetinfo
     @agrovet = Agrovet.find(params[:id])
+    @latest_data_entry = @agrovet.data_entries.order(created_at: :desc).first
+    @products = Product.limit(4)
+
   end
 
   private

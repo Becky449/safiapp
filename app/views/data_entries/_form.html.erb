@@ -12,27 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label :agrovet_id, style: "display: block" %>
-    <%= form.text_field :agrovet_id %>
+    <%= form.hidden_field :agrovet_id, value: @agrovet.id %>
   </div>
 
   <div>
-    <%= form.label :product_1_quantity, style: "display: block" %>
+    <%= form.label :product_1_quantity, @products.first.name, style: "display: block" %>
     <%= form.number_field :product_1_quantity %>
   </div>
 
   <div>
-    <%= form.label :product_2_quantity, style: "display: block" %>
+    <%= form.label :product_2_quantity, @products.second.name, style: "display: block" %>
     <%= form.number_field :product_2_quantity %>
   </div>
 
   <div>
-    <%= form.label :product_3_quantity, style: "display: block" %>
+    <%= form.label :product_3_quantity, @products.third.name, style: "display: block" %>
     <%= form.number_field :product_3_quantity %>
   </div>
 
   <div>
-    <%= form.label :product_4_quantity, style: "display: block" %>
+    <%= form.label :product_4_quantity, @products.fourth.name, style: "display: block" %>
     <%= form.number_field :product_4_quantity %>
   </div>
 

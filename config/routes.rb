@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       get 'agrovetinfo' # Your agrovetinfo route
     end
+    get 'data_entries/new'
   end
   resources :products
     # Move this line inside the :agrovets block

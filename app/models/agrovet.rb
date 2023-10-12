@@ -1,5 +1,7 @@
 class Agrovet < ApplicationRecord
   belongs_to :user
+  has_many :data_entries
+  has_many :products
 
   validates :name, presence: true
   validates :location, presence: true
