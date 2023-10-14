@@ -17,5 +17,9 @@ class PagesController < ApplicationController
   def agrovetinfo
     @agrovet = Agrovet.find(params[:id])
   end
+
+  def placeorder
+    @agrovet = Agrovet.find(params[:id])
+  end
   
 end

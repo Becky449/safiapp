@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :data_entries
   resources :user_agrovets
   resources :agrovets do
     member do
-      get 'agrovetinfo' # Your agrovetinfo route
+      get 'agrovetinfo'
+      get 'placeorder'
     end
     get 'data_entries/new'
+    get 'orders/new'
   end
   resources :products
-    # Move this line inside the :agrovets block
   devise_for :users
   root "pages#home"
   get 'products/index'

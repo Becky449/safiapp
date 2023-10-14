@@ -1,0 +1,53 @@
+<h5><%= current_user.firstname %></h5>
+<h3><%= @agrovet.name %></h3>
+<p><strong>Owner's Phone: </strong><%= @agrovet.owner_phone%></p>
+<p><strong>Owner's Name </strong><%= @agrovet.owner_name%></p>
+<p><strong>Location: </strong><%= @agrovet.location%></p>
+
+<% if @latest_order.present? %>
+    <!-- Display information from the latest form entry here -->
+    <!-- Example: -->
+    <p><strong>Order Date:</strong> <%= @latest_order.created_at.strftime("%d-%m-%Y at %H:%M:%S") %></p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= @products.first.name %></td>
+            <td><%= @latest_order.product_1_quantity %></td>
+            <td><%= @products.first.price * @latest_order.product_1_quantity %></td>
+        </tr>
+        <tr>
+            <td><%= @products.second.name %></td>
+            <td><%= @latest_order.product_2_quantity %></td>
+            <td><%= @products.second.price * @latest_order.product_2_quantity %></td>
+        </tr>
+        <tr>
+            <td><%= @products.third.name %></td>
+            <td><%= @latest_order.product_3_quantity %></td>
+            <td><%= @products.third.price * @latest_order.product_3_quantity %></td>
+        </tr>
+        <tr>
+            <td><%= @products.fourth.name %></td>
+            <td><%= @latest_order.product_4_quantity %></td>
+            <td><%= @products.fourth.price * @latest_order.product_4_quantity %></td>
+        </tr>
+    </tbody>
+</table><br>
+  <p><strong>Total Amount:</strong> <%=(@products.first.price * @latest_order.product_1_quantity) + (@products.second.price * @latest_order.product_2_quantity) + 
+  (@products.third.price * @latest_order.product_3_quantity) + (@products.fourth.price * @latest_order.product_4_quantity) %></p>
+    <p><strong>Status:</strong><%= @latest_order.status %></p>
+    <p><strong>Order Number:</strong><%= @latest_order.id %></p>
+    <%= link_to "Update Order", edit_order_path(@latest_order), class: "btn btn-success" %>
+    <%= link_to "Place Order", new_order_path(agrovet_id: @agrovet.id), class: "btn btn-success" %>
+    <%= link_to "Go Back", agrovetinfo_agrovet_path(@agrovet.id), class: "btn btn-success" %>
+    <% else %>
+    <p>No Orders available for this agrovet.</p>
+    <%= link_to "Place Order", new_order_path(agrovet_id: @agrovet.id), class: "btn btn-success" %>
+
+<% end %>

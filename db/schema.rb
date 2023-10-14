@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_094748) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_12_025339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_094748) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["agrovet_id"], name: "index_data_entries_on_agrovet_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "agrovet_id", null: false
+    t.integer "order_number"
+    t.integer "product_1_quantity"
+    t.integer "product_2_quantity"
+    t.integer "product_3_quantity"
+    t.integer "product_4_quantity"
+    t.integer "total_amount"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agrovet_id"], name: "index_orders_on_agrovet_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -73,6 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_094748) do
 
   add_foreign_key "agrovets", "users"
   add_foreign_key "data_entries", "agrovets"
+  add_foreign_key "orders", "agrovets"
   add_foreign_key "user_agrovets", "agrovets"
   add_foreign_key "user_agrovets", "users"
 end

@@ -1,0 +1,51 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :agrovet_id, value: @agrovet.id %>
+  </div>
+
+  <div>
+    <%= form.label :order_number, style: "display: block" %>
+    <%= form.text_field :order_number, readonly: true %>
+  </div>
+
+ <div>
+    <%= form.label :product_1_quantity, @products.first.name, style: "display: block" %>
+    <%= form.number_field :product_1_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :product_2_quantity, @products.second.name, style: "display: block" %>
+    <%= form.number_field :product_2_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :product_3_quantity, @products.third.name, style: "display: block" %>
+    <%= form.number_field :product_3_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :product_4_quantity, @products.fourth.name, style: "display: block" %>
+    <%= form.number_field :product_4_quantity %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
