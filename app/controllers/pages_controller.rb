@@ -3,6 +3,13 @@ class PagesController < ApplicationController
   end
 
   def admin
+    @agrovet = Agrovet.find(params[:agrovet_id]) if params[:agrovet_id].present?
+  @agrovets = Agrovet.all
+  end
+
+  def manager
+    @agrovet = Agrovet.find(params[:agrovet_id]) if params[:agrovet_id].present?
+    @agrovets = Agrovet.all
   end
 
   def salesrep
