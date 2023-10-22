@@ -4,6 +4,7 @@ class AgrovetsController < ApplicationController
   # GET /agrovets or /agrovets.json
   def index
     @agrovets = Agrovet.all
+    @agrovets_count = Agrovet.count
   end
 
   # GET /agrovets/1 or /agrovets/1.json
@@ -61,12 +62,22 @@ class AgrovetsController < ApplicationController
     @agrovet = Agrovet.find(params[:id])
     @latest_data_entry = @agrovet.data_entries.order(created_at: :desc).first
     @products = Product.limit(4)
+    @latest_product_1_data_entry_total = (@products.first&.price || 0) * (@latest_data_entry&.product_1_quantity || 0)
+    @latest_product_2_data_entry_total = (@products.second&.price || 0) * (@latest_data_entry&.product_2_quantity || 0)
+    @latest_product_3_data_entry_total = (@products.third&.price || 0) * (@latest_data_entry&.product_3_quantity || 0)
+    @latest_product_4_data_entry_total = (@products.fourth&.price || 0) * (@latest_data_entry&.product_4_quantity || 0)
+    @latest_total_data_entry_amount = @latest_product_1_data_entry_total + @latest_product_2_data_entry_total + @latest_product_3_data_entry_total + @latest_product_4_data_entry_total
   end
 
   def placeorder
     @agrovet = Agrovet.find(params[:id])
     @latest_order = @agrovet.orders.order(created_at: :desc).first
     @products = Product.limit(4)
+    @latest_product_1_order_total = (@products.first&.price || 0) * (@latest_order&.product_1_quantity || 0)
+    @latest_product_2_order_total = (@products.second&.price || 0) * (@latest_order&.product_2_quantity || 0)
+    @latest_product_3_order_total = (@products.third&.price || 0) * (@latest_order&.product_3_quantity || 0)
+    @latest_product_4_order_total = (@products.fourth&.price || 0) * (@latest_order&.product_4_quantity || 0)
+    @latest_total_order_amount = @latest_product_1_order_total + @latest_product_2_order_total + @latest_product_3_order_total + @latest_product_4_order_total
   end
 
   private

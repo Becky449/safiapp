@@ -41,9 +41,9 @@
   </div>
 
   <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
+  <%= form.label :status, style: "display: block" %>
+  <%= form.collection_select :status, Order::STATUSES, :to_s, :humanize %>
+</div>
 
   <div>
     <%= form.submit %>

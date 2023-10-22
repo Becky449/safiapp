@@ -18,6 +18,5 @@ class Agrovet < ApplicationRecord
   #     all
   #   end
   # end
-
     # Method to retrieve the latest form entry for the agrovet
 end
