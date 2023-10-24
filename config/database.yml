@@ -24,6 +24,7 @@ default: &default
 development:
   <<: *default
   database: safiapp_development
+  timezone: Africa/Nairobi
   username: safi_sales_rep
   password: 1234
 

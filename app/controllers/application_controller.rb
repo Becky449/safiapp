@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+    around_action :set_time_zone
+
     protect_from_forgery with: :exception
 
     before_action :update_allowed_parameters, if: :devise_controller?
@@ -21,5 +23,9 @@ class ApplicationController < ActionController::Base
         else
             pages_salesrep_path
         end
+    end
+
+    def set_time_zone
+        Time.use_zone('Nairobi') { yield }
     end
 end

@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    @products = Product.all
   end
 
   # GET /orders/new
@@ -31,6 +32,7 @@ class OrdersController < ApplicationController
     @order = @agrovet.orders.build(order_params.except(:data_entry))
     @order.order_number = @order.id
     @products = Product.all
+    @products = @agrovet.products
 
     respond_to do |format|
       if @order.save

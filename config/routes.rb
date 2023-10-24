@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get 'agrovetinfo'
       get 'placeorder'
+      get 'allorders'
     end
     get 'data_entries/new'
     get 'orders/new'

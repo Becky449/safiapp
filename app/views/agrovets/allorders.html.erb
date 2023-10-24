@@ -1,0 +1,28 @@
+<% if @orders.any? %>
+<h1>All Orders for <%= @agrovet.name %></h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Order Date</th>
+        <th>Order Number</th>
+        <th>Status</th>
+        <!-- Add more table headers as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <% @orders.each do |order| %>
+        <tr>
+        <td><%= order.created_at.to_time.in_time_zone %></td>
+        <td><%= order.id %></td>
+        <td><%= order.status %></td>
+        <td>
+            <%= link_to "View Details", order_path(order), class: "btn btn-primary" %>
+        </td>
+        <!-- Add more table cells for other order details -->
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+<% else %>
+<p>No orders available for this agrovet.</p>
+<% end %>
