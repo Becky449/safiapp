@@ -85,6 +85,14 @@ class AgrovetsController < ApplicationController
     @orders = @agrovet.orders
   end
 
+  def orderdetail
+    @agrovet = Agrovet.find(params[:id])
+    @orders = @agrovet.orders
+    # @order = Order.find(params[:id])
+    @order = @orders.find(params[:order_id])
+    @products = Product.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_agrovet

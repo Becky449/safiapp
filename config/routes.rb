@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  resources :orders
+  resources :orders do
+    member do
+      get 'orderdetail'
+    end
+  end
   resources :data_entries
   resources :user_agrovets
   resources :agrovets do
+    resources :orders, only: [:index, :show, :new, :create]
     member do
       get 'agrovetinfo'
       get 'placeorder'
       get 'allorders'
+      
     end
     get 'data_entries/new'
     get 'orders/new'

@@ -4,11 +4,15 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = Order.all
+    @products = Product.all
+    @agrovet = Agrovet.find(params[:agrovet_id])
   end
 
   # GET /orders/1 or /orders/1.json
   def show
     @products = Product.all
+    @order = Order.find(params[:id])  # Find the order by its ID
+    @agrovet = @order.agrovet 
   end
 
   # GET /orders/new
@@ -68,6 +72,14 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def orderdetail
+    @agrovet = Agrovet.find(params[:id])
+    @orders = @agrovet.orders
+    # @order = Order.find(params[:id])
+    @order = @orders.find(params[:order_id])
+    @products = Product.all
   end
 
   private

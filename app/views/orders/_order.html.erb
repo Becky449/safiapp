@@ -1,46 +1,42 @@
 <div id="<%= dom_id(order) %>">
-  <p>
-    <strong>Agrovet:</strong>
-    <%= order.agrovet_id %>
-  </p>
-
-  <p>
-    <strong>Order number:</strong>
-    <%= order.id %>
-  </p>
-
-  <p>
-    <strong><%= @products.first.name %>:</strong>
-    <%= order.product_1_quantity %>
-  </p>
-
-  <p>
-    <strong><%= @products.second.name %>:</strong>
-    <%= order.product_2_quantity %>
-  </p>
-
-  <p>
-    <strong><%= @products.third.name %>:</strong>
-    <%= order.product_3_quantity %>
-  </p>
-
-  <p>
-    <strong><%= @products.fourth.name %>:</strong>
-    <%= order.product_4_quantity %>
-  </p>
-
-  <p>
-    <strong>Total amount:</strong>
-    <%= order.total_amount %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= order.status %>
-  </p>
-
-  <p>
-    <strong>Created at:</strong>
-    <%= order.created_at %>
-  </p>
+  <h4>Order Details</h4>
+  <table class="table table-striped">
+    <tr>
+      <td><strong>Agrovet:</strong></td>
+      <td><%= "#{order.agrovet.name} (ID: #{order.agrovet_id})" %></td>
+    </tr>
+    <tr>
+      <td><strong>Order Number:</strong></td>
+      <td><%= order.id %></td>
+    </tr>
+    <tr>
+      <td><strong><%= @products.first.name %>:</strong></td>
+      <td><%= order.product_1_quantity %></td>
+    </tr>
+    <tr>
+      <td><strong><%= @products.second.name %>:</strong></td>
+      <td><%= order.product_2_quantity %></td>
+    </tr>
+    <tr>
+      <td><strong><%= @products.third.name %>:</strong></td>
+      <td><%= order.product_3_quantity %></td>
+    </tr>
+    <tr>
+      <td><strong><%= @products.fourth.name %>:</strong></td>
+      <td><%= order.product_4_quantity %></td>
+    </tr>
+    <tr>
+      <td><strong>Total Amount:</strong></td>
+      <td><%= order.total_amount %></td>
+    </tr>
+    <tr>
+      <td><strong>Status:</strong></td>
+      <td><%= order.status %></td>
+    </tr>
+    <tr>
+      <td><strong>Created at:</strong></td>
+      <td><%= order.created_at.in_time_zone("Nairobi").strftime("%d-%m-%Y at %H:%M:%S") %></td>
+    </tr>
+  </table>
+  <%= link_to "Go Back to All Orders", allorders_agrovet_path(@order.agrovet_id), class: "btn btn-success" %>
 </div>
