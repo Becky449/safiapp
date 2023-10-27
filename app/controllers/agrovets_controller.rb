@@ -71,8 +71,8 @@ class AgrovetsController < ApplicationController
 
   def placeorder
     @agrovet = Agrovet.find(params[:id])
-    @latest_order = @agrovet.orders.order(created_at: :desc).first
     @products = Product.limit(8)
+    @latest_order = @agrovet.orders.order(created_at: :desc).first
     @latest_product_1_order_total = (@products.first&.price || 0) * (@latest_order&.product_1_quantity || 0)
     @latest_product_2_order_total = (@products.second&.price || 0) * (@latest_order&.product_2_quantity || 0)
     @latest_product_3_order_total = (@products.third&.price || 0) * (@latest_order&.product_3_quantity || 0)

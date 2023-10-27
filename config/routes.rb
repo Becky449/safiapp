@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   get 'agrovets/index'
   get 'admin', to: 'pages#admin', as: 'pages_admin'
   get 'salesrep', to: 'pages#salesrep', as: 'pages_salesrep'
+  get 'manager', to: 'pages#manager', as: 'pages_manager'
 end

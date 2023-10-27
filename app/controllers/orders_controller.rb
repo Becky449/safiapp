@@ -13,6 +13,12 @@ class OrdersController < ApplicationController
     @products = Product.all
     @order = Order.find(params[:id])  # Find the order by its ID
     @agrovet = @order.agrovet 
+    @product_1_order_total = (@products.first&.price || 0) * (@order&.product_1_quantity || 0)
+    @product_2_order_total = (@products.second&.price || 0) * (@order&.product_2_quantity || 0)
+    @product_3_order_total = (@products.third&.price || 0) * (@order&.product_3_quantity || 0)
+    @product_4_order_total = (@products.fourth&.price || 0) * (@order&.product_4_quantity || 0)
+    @total_order_amount = @product_1_order_total + @product_2_order_total + @product_3_order_total + @product_4_order_total
+  
   end
 
   # GET /orders/new
@@ -80,6 +86,18 @@ class OrdersController < ApplicationController
     # @order = Order.find(params[:id])
     @order = @orders.find(params[:order_id])
     @products = Product.all
+  end
+
+  def total_amount
+    # Calculate the total amount for this order
+    total = 0
+
+    total += @product_1_quantity * @products.first&.price
+    total += @product_2_quantity * @products.second&.price
+    total += @product_3_quantity * @products.third&.price
+    total += @product_4_quantity * @products.fourth&.price
+
+    return total
   end
 
   private
