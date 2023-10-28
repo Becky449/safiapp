@@ -10,8 +10,47 @@ class PagesController < ApplicationController
   def manager
     @agrovet = Agrovet.find(params[:agrovet_id]) if params[:agrovet_id].present?
     @agrovets = Agrovet.all
+    @pending_orders = Order.where(status: ['Pending', 'pending'])
   end
 
+  def pendingorders
+    @agrovet = Agrovet.find(params[:agrovet_id]) if params[:agrovet_id].present?
+    @agrovets = Agrovet.all
+    @pending_orders = Order.where(status: ['Pending', 'pending'])
+  end
+
+  def dispatchedorders
+    @agrovet = Agrovet.find(params[:agrovet_id]) if params[:agrovet_id].present?
+    @agrovets = Agrovet.all
+    @dispatched_orders = Order.where(status: ['Dispatched', 'dispatched'])
+    @pending_orders = Order.where(status: ['Pending', 'pending'])
+  end
+
+  def receivedorders
+    @agrovet = Agrovet.find(params[:agrovet_id]) if params[:agrovet_id].present?
+    @agrovets = Agrovet.all
+    @dispatched_orders = Order.where(status: ['Dispatched', 'dispatched'])
+    @pending_orders = Order.where(status: ['Pending', 'pending'])
+    @received_orders = Order.where(status: ['Received', 'received'])
+  end
+
+  def allagrovets
+    @agrovet = Agrovet.find(params[:agrovet_id]) if params[:agrovet_id].present?
+    @agrovets = Agrovet.all
+    @dispatched_orders = Order.where(status: ['Dispatched', 'dispatched'])
+    @pending_orders = Order.where(status: ['Pending', 'pending'])
+    @received_orders = Order.where(status: ['Received', 'received'])
+  end
+
+  def allsalesreps
+    @agrovet = Agrovet.find(params[:agrovet_id]) if params[:agrovet_id].present?
+    @agrovets = Agrovet.all
+    @dispatched_orders = Order.where(status: ['Dispatched', 'dispatched'])
+    @pending_orders = Order.where(status: ['Pending', 'pending'])
+    @received_orders = Order.where(status: ['Received', 'received'])
+    @salesreps = User.where(role: [0])
+  end
+  
   def salesrep
     # Find the current user's agrovets
     @agrovets = Agrovet.where(user_id: current_user.id)
