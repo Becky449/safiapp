@@ -92,12 +92,12 @@
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
+                                            <%# <button type="button" tabindex="0" class="dropdown-item">User Account</button>
                                             <button type="button" tabindex="0" class="dropdown-item">Settings</button>
                                             <h6 tabindex="-1" class="dropdown-header">Header</h6>
                                             <button type="button" tabindex="0" class="dropdown-item">Actions</button>
                                             <div tabindex="-1" class="dropdown-divider"></div>
-                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button> %>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                                             </span>
                                         </button>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                            <ul class="nav flex-column">
+                                            <%# <ul class="nav flex-column">
                                                 <li class="nav-item">
                                                     <a href="javascript:void(0);" class="nav-link">
                                                         <i class="nav-link-icon lnr-inbox"></i>
@@ -132,7 +132,7 @@
                                                 <li class="nav-item">
                                                         <i class="nav-link-icon lnr-book"></i>
                                                         <span>
-                                                            <%= link_to "sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
+                                                            <%= link_to "sign out", destroy_user_session_path, 'data-turbo-method': :delete 
                                                         </span>
                                                     </a>
                                                 </li>
@@ -151,8 +151,8 @@
                                                             File Disabled
                                                         </span>
                                                     </a>
-                                                </li> %>
-                                            </ul>
+                                                </li> 
+                                            </ul> %>
                                         </div>
                                     </div>
                                 </div>   
@@ -602,7 +602,8 @@
                             </ul>
                         </div>
                     </div>
-                </div>    <div class="app-main__outer">
+                </div>    
+                <div class="app-main__outer">
                     <div class="app-main__inner">
                         <div class="app-page-title">
                             <div class="page-title-wrapper">
@@ -707,7 +708,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
+                            <%# <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
                                 <div class="card mb-3 widget-content bg-premium-dark">
                                     <div class="widget-content-wrapper text-white">
                                         <div class="widget-content-left">
@@ -1305,7 +1306,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> %>
                         </div>
                 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
