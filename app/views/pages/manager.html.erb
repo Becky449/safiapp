@@ -479,10 +479,10 @@
                             <ul class="vertical-nav-menu">
                                 <%# <li class="app-sidebar__heading">Dashboards</li> %>
                                 <li>
-                                    <a href="index.html" class="mm-active">
-                                        <i class="fa fa-home" aria-hidden="true"></i>
-                                        Home
-                                    </a>
+                                    <%= link_to pages_manager_path do %>
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                Home
+                                <% end %>
                                 </li>
                                 <%# <li class="app-sidebar__heading">UI Components</li> %>
                                 <li>
@@ -554,6 +554,9 @@
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     Agrovets
                                     <% end %>
+                                </li>
+                                <li>
+                                    <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %>
                                 </li>
                                 <%# <li class="app-sidebar__heading">Widgets</li>
                                 <li>
@@ -1302,7 +1305,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>    </div>
+                    </div>
+                        </div>
                 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
