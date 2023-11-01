@@ -1,0 +1,2 @@
+module AgrovetsHelper
+end
