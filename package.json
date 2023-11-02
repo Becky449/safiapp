@@ -1,5 +1,5 @@
 {
-  "name": "your-project-name",
+  "name": "safiapp",
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
@@ -9,5 +9,9 @@
   },
   "devDependencies": {
     "webpack-dev-server": "^4.15.1"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --config webpack.config.js"
   }
 }
