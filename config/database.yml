@@ -20,15 +20,13 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  
-  database: <%= ENV["SAFIAPP_DATABASE_NAME"] %>
-  username: <%= ENV["SAFIAPP_DATABASE_USERNAME"] %>
-  password: <%= ENV["SAFIAPP_DATABASE_PASSWORD"] %>
 
 development:
   <<: *default
-  database: safiapp
+  database: safiapp_development
   timezone: Africa/Nairobi
+  username: safi_sales_rep
+  password: 1234
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -63,6 +61,8 @@ development:
 test:
   <<: *default
   database: safiapp_test
+  username: safi_sales_rep
+  password: 1234
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -77,9 +77,9 @@ test:
 # variable, Rails will automatically merge its configuration values on top of
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
-# #
-#   production:
-#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+#
+  production:
+    url: <%= ENV["MY_APP_DATABASE_URL"] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
@@ -87,6 +87,6 @@ test:
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
-  database: <%= ENV["SAFIAPP_DATABASE_NAME"] %>
-  username: <%= ENV["SAFIAPP_DATABASE_USERNAME"] %>
-  password: <%= ENV["SAFIAPP_DATABASE_PASSWORD"] %>
+  database: safiapp_production
+  username: safi_sales_rep
+  password: 1234
