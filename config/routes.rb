@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-    devise_for :users, controllers: {
-      sessions: 'users/sessions'
-    } do
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  } do
     get 'users/sign_out' => 'devise/sessions#destroy'
   end
   resources :orders do
@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       get 'agrovetinfo'
       get 'placeorder'
       get 'allorders'
-      
     end
     get 'data_entries/new'
     get 'orders/new'

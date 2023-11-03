@@ -10,6 +10,4 @@ class Order < ApplicationRecord
   def humanize
     status.humanize
   end
-
-  
 end

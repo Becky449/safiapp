@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :set_order, only: %i[show edit update destroy]
 
   # GET /orders or /orders.json
   def index
@@ -11,14 +11,13 @@ class OrdersController < ApplicationController
   # GET /orders/1 or /orders/1.json
   def show
     @products = Product.all
-    @order = Order.find(params[:id])  # Find the order by its ID
-    @agrovet = @order.agrovet 
+    @order = Order.find(params[:id]) # Find the order by its ID
+    @agrovet = @order.agrovet
     @product_1_order_total = (@products.first&.price || 0) * (@order&.product_1_quantity || 0)
     @product_2_order_total = (@products.second&.price || 0) * (@order&.product_2_quantity || 0)
     @product_3_order_total = (@products.third&.price || 0) * (@order&.product_3_quantity || 0)
     @product_4_order_total = (@products.fourth&.price || 0) * (@order&.product_4_quantity || 0)
     @total_order_amount = @product_1_order_total + @product_2_order_total + @product_3_order_total + @product_4_order_total
-  
   end
 
   # GET /orders/new
@@ -101,15 +100,15 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def order_params
-      params.require(:order).permit(:agrovet_id, :order_number, :product_1_quantity, :product_2_quantity, :product_3_quantity, :product_4_quantity, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order
+    @order = Order.find(params[:id])
+  end
 
-    
+  # Only allow a list of trusted parameters through.
+  def order_params
+    params.require(:order).permit(:agrovet_id, :order_number, :product_1_quantity, :product_2_quantity,
+                                  :product_3_quantity, :product_4_quantity, :status)
+  end
 end

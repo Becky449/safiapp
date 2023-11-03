@@ -24,7 +24,7 @@ class PagesController < ApplicationController
     # def all_latest_product_4_data_entry_total
     #   (@products.fourth&.price || 0) * (@all_latest_data_entry&.product_4_quantity || 0)
     # end
-  
+
     # def all_latest_total_data_entry_amount
     #   @all_latest_product_1_data_entry_total + @all_latest_product_2_data_entry_total + @all_latest_product_3_data_entry_total + @all_latest_product_4_data_entry_total
     # end
@@ -43,7 +43,7 @@ class PagesController < ApplicationController
     #   product_2_total = (data_entry.product_2_quantity || 0) * (@products.second&.price || 0)
     #   product_3_total = (data_entry.product_3_quantity || 0) * (@products.third&.price || 0)
     #   product_4_total = (data_entry.product_4_quantity || 0) * (@products.fourth&.price || 0)
-    
+
     #   # Calculate the total for this data entry
     #   product_1_total + product_2_total + product_3_total + product_4_total
     # end
@@ -92,15 +92,14 @@ class PagesController < ApplicationController
     @received_orders = Order.where(status: ['Received', 'received'])
     @salesreps = User.where(role: [0])
   end
-  
+
   def salesrep
     # Find the current user's agrovets
     @agrovets = Agrovet.where(user_id: current_user.id)
-  
+
     # Optionally, you can find a specific agrovet if an agrovet_id parameter is provided
     @agrovet = Agrovet.find_by(id: params[:agrovet_id]) if params[:agrovet_id]
   end
-  
 
   def agrovetinfo
     @agrovet = Agrovet.find(params[:id])
@@ -113,5 +112,4 @@ class PagesController < ApplicationController
   def allorders
     @agrovet = Agrovet.find(params[:id])
   end
-  
 end

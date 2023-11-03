@@ -17,7 +17,9 @@ class DataEntriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create data_entry" do
     assert_difference("DataEntry.count") do
-      post data_entries_url, params: { data_entry: { agrovet_id: @data_entry.agrovet_id, money_owed: @data_entry.money_owed, money_paid: @data_entry.money_paid, product_1_quantity: @data_entry.product_1_quantity, product_2_quantity: @data_entry.product_2_quantity, product_3_quantity: @data_entry.product_3_quantity, product_4_quantity: @data_entry.product_4_quantity } }
+      post data_entries_url,
+           params: { data_entry: { agrovet_id: @data_entry.agrovet_id, money_owed: @data_entry.money_owed,
+                                   money_paid: @data_entry.money_paid, product_1_quantity: @data_entry.product_1_quantity, product_2_quantity: @data_entry.product_2_quantity, product_3_quantity: @data_entry.product_3_quantity, product_4_quantity: @data_entry.product_4_quantity } }
     end
 
     assert_redirected_to data_entry_url(DataEntry.last)
@@ -34,7 +36,9 @@ class DataEntriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update data_entry" do
-    patch data_entry_url(@data_entry), params: { data_entry: { agrovet_id: @data_entry.agrovet_id, money_owed: @data_entry.money_owed, money_paid: @data_entry.money_paid, product_1_quantity: @data_entry.product_1_quantity, product_2_quantity: @data_entry.product_2_quantity, product_3_quantity: @data_entry.product_3_quantity, product_4_quantity: @data_entry.product_4_quantity } }
+    patch data_entry_url(@data_entry),
+          params: { data_entry: { agrovet_id: @data_entry.agrovet_id, money_owed: @data_entry.money_owed,
+                                  money_paid: @data_entry.money_paid, product_1_quantity: @data_entry.product_1_quantity, product_2_quantity: @data_entry.product_2_quantity, product_3_quantity: @data_entry.product_3_quantity, product_4_quantity: @data_entry.product_4_quantity } }
     assert_redirected_to data_entry_url(@data_entry)
   end
 

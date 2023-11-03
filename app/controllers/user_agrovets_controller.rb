@@ -1,5 +1,5 @@
 class UserAgrovetsController < ApplicationController
-  before_action :set_user_agrovet, only: %i[ show edit update destroy ]
+  before_action :set_user_agrovet, only: %i[show edit update destroy]
 
   # GET /user_agrovets or /user_agrovets.json
   def index
@@ -58,13 +58,14 @@ class UserAgrovetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_agrovet
-      @user_agrovet = UserAgrovet.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_agrovet_params
-      params.require(:user_agrovet).permit(:user_id, :agrovet_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_agrovet
+    @user_agrovet = UserAgrovet.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_agrovet_params
+    params.require(:user_agrovet).permit(:user_id, :agrovet_id)
+  end
 end

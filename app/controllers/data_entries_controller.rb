@@ -1,5 +1,5 @@
 class DataEntriesController < ApplicationController
-  before_action :set_data_entry, only: %i[ show edit update destroy ]
+  before_action :set_data_entry, only: %i[show edit update destroy]
 
   # GET /data_entries or /data_entries.json
   def index
@@ -63,13 +63,15 @@ class DataEntriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_data_entry
-      @data_entry = DataEntry.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def data_entry_params
-      params.require(:data_entry).permit(:agrovet_id, :product_1_quantity, :product_2_quantity, :product_3_quantity, :product_4_quantity, :money_paid, :money_owed)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_data_entry
+    @data_entry = DataEntry.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def data_entry_params
+    params.require(:data_entry).permit(:agrovet_id, :product_1_quantity, :product_2_quantity, :product_3_quantity,
+                                       :product_4_quantity, :money_paid, :money_owed)
+  end
 end

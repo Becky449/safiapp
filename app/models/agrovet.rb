@@ -18,7 +18,7 @@ class Agrovet < ApplicationRecord
   #     all
   #   end
   # end
-    # Method to retrieve the latest form entry for the agrovet
+  # Method to retrieve the latest form entry for the agrovet
   # def all_latest_data_entry
   #   @data_entries.order(created_at: :desc).first
   # end

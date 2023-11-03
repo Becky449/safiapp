@@ -17,7 +17,9 @@ class AgrovetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create agrovet" do
     assert_difference("Agrovet.count") do
-      post agrovets_url, params: { agrovet: { location: @agrovet.location, name: @agrovet.name, owner_email: @agrovet.owner_email, owner_name: @agrovet.owner_name, owner_phone: @agrovet.owner_phone, user_id: @agrovet.user_id } }
+      post agrovets_url,
+           params: { agrovet: { location: @agrovet.location, name: @agrovet.name, owner_email: @agrovet.owner_email,
+                                owner_name: @agrovet.owner_name, owner_phone: @agrovet.owner_phone, user_id: @agrovet.user_id } }
     end
 
     assert_redirected_to agrovet_url(Agrovet.last)
@@ -34,7 +36,9 @@ class AgrovetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update agrovet" do
-    patch agrovet_url(@agrovet), params: { agrovet: { location: @agrovet.location, name: @agrovet.name, owner_email: @agrovet.owner_email, owner_name: @agrovet.owner_name, owner_phone: @agrovet.owner_phone, user_id: @agrovet.user_id } }
+    patch agrovet_url(@agrovet),
+          params: { agrovet: { location: @agrovet.location, name: @agrovet.name, owner_email: @agrovet.owner_email,
+                               owner_name: @agrovet.owner_name, owner_phone: @agrovet.owner_phone, user_id: @agrovet.user_id } }
     assert_redirected_to agrovet_url(@agrovet)
   end
 

@@ -1,5 +1,5 @@
 class AgrovetsController < ApplicationController
-  before_action :set_agrovet, only: %i[ show edit update destroy ]
+  before_action :set_agrovet, only: %i[show edit update destroy]
 
   # GET /agrovets or /agrovets.json
   def index
@@ -23,7 +23,7 @@ class AgrovetsController < ApplicationController
   # POST /agrovets or /agrovets.json
   def create
     @agrovet = Agrovet.new(agrovet_params)
-    
+
     respond_to do |format|
       if @agrovet.save
         format.html { redirect_to pages_salesrep_path, notice: "Agrovet was successfully created." }
@@ -94,13 +94,14 @@ class AgrovetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_agrovet
-      @agrovet = Agrovet.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def agrovet_params
-      params.require(:agrovet).permit(:name, :location, :owner_name, :owner_phone, :owner_email, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_agrovet
+    @agrovet = Agrovet.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def agrovet_params
+    params.require(:agrovet).permit(:name, :location, :owner_name, :owner_phone, :owner_email, :user_id)
+  end
 end

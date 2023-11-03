@@ -17,7 +17,8 @@ class UserAgrovetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_agrovet" do
     assert_difference("UserAgrovet.count") do
-      post user_agrovets_url, params: { user_agrovet: { agrovet_id: @user_agrovet.agrovet_id, user_id: @user_agrovet.user_id } }
+      post user_agrovets_url,
+           params: { user_agrovet: { agrovet_id: @user_agrovet.agrovet_id, user_id: @user_agrovet.user_id } }
     end
 
     assert_redirected_to user_agrovet_url(UserAgrovet.last)
@@ -34,7 +35,8 @@ class UserAgrovetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_agrovet" do
-    patch user_agrovet_url(@user_agrovet), params: { user_agrovet: { agrovet_id: @user_agrovet.agrovet_id, user_id: @user_agrovet.user_id } }
+    patch user_agrovet_url(@user_agrovet),
+          params: { user_agrovet: { agrovet_id: @user_agrovet.agrovet_id, user_id: @user_agrovet.user_id } }
     assert_redirected_to user_agrovet_url(@user_agrovet)
   end
 

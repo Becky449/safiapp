@@ -11,10 +11,10 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     user = User.find_by(email: params[:user][:email])
-  
+
     if user && user.valid_password?(params[:user][:password])
       sign_in user
-  
+
       if user.role == 'admin'
         redirect_to pages_admin_path
       elsif user.role == 'salesrep'
@@ -27,7 +27,7 @@ class Users::SessionsController < Devise::SessionsController
     else
       flash[:alert] = 'Invalid email or password'
     end
-end
+  end
   # DELETE /resource/sign_out
   # def destroy
   #   super
