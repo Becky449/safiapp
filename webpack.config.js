@@ -16,7 +16,7 @@ module.exports = {
   output: {
     filename: 'application.js', // Output filename in your Rails app/assets/javascripts directory
     path: path.resolve(__dirname, 'public'), // Update the output path to your Rails public folder
-    publicPath: '/', // Public path for assets in your Rails app
+    publicPath: '/public', // Public path for assets in your Rails app
   },
   module: {
     rules: [
